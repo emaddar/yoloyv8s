@@ -35,7 +35,7 @@ def main():
             results = model(source=img)
             res_plotted = results[0].plot()
             cv2.imwrite('images/test_image_output.jpg', res_plotted)
-
+            
             # Display the uploaded image
             st.image('images/test_image_output.jpg', caption="Uploaded Image", use_column_width=True)
 
@@ -86,9 +86,11 @@ def main():
                 results = model(source=img)
                 res_plotted = results[0].plot()
                 cv2.imwrite('images/test_image_output.jpg', res_plotted)
-
+                
+                col1, col2 = st.columns(2)
+                col1.image(img, caption="Downloaded Image" , use_column_width=True)
                 # Display the downloaded image
-                st.image('images/test_image_output.jpg', caption="Downloaded Image", use_column_width=True)
+                col2.image('images/test_image_output.jpg', caption="predected Image", use_column_width=True)
             except:
                 st.error("Error: Invalid image URL or unable to download the image.")
 
