@@ -36,8 +36,11 @@ def main():
             res_plotted = results[0].plot()
             cv2.imwrite('images/test_image_output.jpg', res_plotted)
             
+            col1, col2 = st.columns(2)
+
+            col1.image(img, caption="Uploaded Image", use_column_width=True)
             # Display the uploaded image
-            st.image('images/test_image_output.jpg', caption="Uploaded Image", use_column_width=True)
+            col2.image('images/test_image_output.jpg', caption="Predected Image", use_column_width=True)
 
     elif choice == "Use webcam":
         # Define the WebRTC client settings
